@@ -1,7 +1,9 @@
 class Room < ActiveRecord::Base
   belongs_to :user
-
   has_many :photos
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
   validates :room_type, presence: true
   validates :room_env, presence: true
