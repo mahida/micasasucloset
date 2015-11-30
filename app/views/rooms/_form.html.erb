@@ -1,0 +1,108 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Create your beautiful place
+	</div>
+	<div class="panel-body">
+		<div class="container">
+			
+			<%= form_for @room, html: {multipart: true} do |f| %>
+				
+				<div class="row">
+					<div class="col-md-3 select">
+						<div class="form-group">
+							<label>Type of Space</label>
+							<%= f.select :room_type, [["Closet","Closet"], ["Spare","Spare"], ["Garage", "Garage"], ["Basement", "Basement"], ["Attic","Attic"]], id: "room_type", prompt: "Select...", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-3 select">
+						<div class="form-group">
+							<label>Enviroment</label>
+							<%= f.select :room_env, [["Indoor","Indoor"], ["Outdoor","Outdoor"]], prompt: "Select...", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-3 select">
+						<div class="form-group">
+							<label>Approximate Size</label>
+							<%= f.select :room_size, [["Small","Small"], ["Medium","Medium"], ["Large","Large"], ["Extra Large","Extra Large"]], prompt: "Select...", class: "form-control" %>
+						</div>
+					</div>
+
+					<div class="col-md-3 select">
+						<div class="form-group">
+							<label>Accessibility</label>
+							<%= f.select :accessibility, [["Anytime","Anytime"], ["Limited","Limited"], ["None","None"]], prompt: "Select...", class: "form-control" %>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group">
+						<label>Listing Name</label>
+						<%= f.text_field :listing_name, placeholder: "Be clear", class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group">
+						<label>Summary</label>
+						<%= f.text_area :summary, rows: 5, placeholder: "Tell us about your storage space", class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group">
+						<label>Address</label>
+						<%= f.text_field :address, placeholder: "What is your address?", class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<%= f.check_box :is_shared %> Shared Storage
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+						<%= f.check_box :active %> Active
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Nightly Price</label>
+							<div class="input-group">
+								<div class="input-group-addon">$</div>
+								<%= f.text_field :price, placeholder: "eg. $100", class: "form-control" %>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<span class="btn btn-default btn-file">
+								<i class = "fa fa-cloud-upload fa-lq"></i> Upload Photos
+								<%= file_field_tag "images[]", type: :file, multiple: true %>
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div id="photos"><%= render 'photos/list' %></div>
+
+				<div class="actions">
+					<%= f.submit "Save", class: "btn btn-primary" %>
+				</div>
+
+			<% end %>
+
+
+		</div>
+	</div>
+</div>
