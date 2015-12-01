@@ -26,6 +26,14 @@ class ReservationsController < ApplicationController
 		redirect_to @reservation.room, notice: "Your reservation has been created..."
 	end
 
+	def your_storage
+		@storage = current_user.reservations 
+	end
+
+	def your_reservations
+		@rooms = current_user.rooms
+	end
+
 	private
 		def is_conflict(start_date, end_date)
 			room = Room.find(params[:room_id])
