@@ -47,7 +47,7 @@ Rails.application.configure do
     port: 587,
     enable_starttls_auto: true,
     user_name: 'mahida.testing@gmail.com',
-    password: 'HhQLcWnRtLhIT8ITKE1_jw',
+    password: ENV["mandrill_api_key"],
     authentication: 'login'
   }
 
