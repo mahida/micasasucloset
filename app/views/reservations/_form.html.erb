@@ -23,9 +23,9 @@
 	<%= f.hidden_field :total, id: 'reservation_total' %>
 
 	<h4><span id="message"></span></h4>
-	
+
 	<div id="preview" style="display: none">
-		
+
 
 		<table class="reservation-table">
 			<tbody>
@@ -39,18 +39,18 @@
 				</tr>
 			</tbody>
 		</table>
-		<br>		
+		<br>
 	</div>
 
 <%= f.submit "Book Now", id: "btn_book", class: "btn btn-primary wide", disabled: 'true' %>
-	
+
 <% end %>
 
 <script>
 
 	function unavailable(date) {
 		dmy = date.getDate() + "-" + (date.getMonth()+1) + "-" + date.getFullYear();
-		return [$.inArray(dmy, unavailableDates) == -1]; 
+		return [$.inArray(dmy, unavailableDates) == -1];
 	}
 
 	$(function() {
@@ -97,7 +97,7 @@
 									$('#message').text("This date range is not available.");
 									$('#preview').hide();
 									$('#btn_book').attr('disabled', true);
-								
+
 								} else {
 
 									$('#preview').show();
@@ -140,7 +140,7 @@
 									$('#message').text("This date range is not available.");
 									$('#preview').hide();
 									$('#btn_book').attr('disabled', true);
-								
+
 								} else {
 
 									$('#preview').show();

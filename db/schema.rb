@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202145600) do
+ActiveRecord::Schema.define(version: 20151202072338) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -61,13 +61,13 @@ ActiveRecord::Schema.define(version: 20151202145600) do
     t.text     "comment"
     t.integer  "star"
     t.integer  "room_id"
-    t.integer  "user_id"
+    t.string   "user"
+    t.string   "references"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "reviews", ["room_id"], name: "index_reviews_on_room_id"
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "rooms", force: :cascade do |t|
     t.string   "room_type"

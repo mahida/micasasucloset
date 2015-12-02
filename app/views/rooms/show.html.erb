@@ -1,13 +1,6 @@
 <div class="panel panel-default">
 	<div class="panel-body">
-		
-		<!-- Image -->
-		<div class="row">
-			<div class="col-md-12">
-				<%= image_tag @photos[0].image.url(), class: "img-responsive" if @photos.length > 0 %>
-			</div>
-		</div>
-		
+
 		<br>
 
 		<!-- Main Info -->
@@ -24,10 +17,10 @@
 
 						<div class="row text-center row-space-1">
 							<div class="col-sm-3">
-								<i class="fa fa-info-circle fa-2x"></i>
+								<i class="fa fa-cubes fa-2x"></i>
 							</div>
 							<div class="col-sm-3">
-								<i class="fa fa-crop fa-2x"></i>
+								<i class="fa fa-arrows fa-2x"></i>
 							</div>
 							<div class="col-sm-3">
 								<i class="fa fa-home fa-2x"></i>
@@ -62,14 +55,6 @@
 			</div>
 		</div>
 
-		<!-- About -->
-		<div class="row">
-			<div class="col-md-12">
-				<h2>About This Listing</h2>
-				<p><%= @room.summary %></p>
-			</div>
-		</div>
-
 		<!-- More Info -->
 		<div class="row">
 			<div class="col-md-2">
@@ -78,7 +63,7 @@
 			<div class="col-md-10">
 				<div class="row">
 					<ul class="more_info">
-						<li class="<%= 'text-line-through' if !@room.is_shared %>">Shared Storage</li>
+						<li class="<%= 'text-decoration' if !@room.is_shared %>">Shared Storage</li>
 					</ul>
 				</div>
 			</div>
@@ -87,7 +72,7 @@
 		<!-- Carousel -->
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				
+
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				  <!-- Indicators -->
 					<% if @photos %>
@@ -144,7 +129,7 @@
 		<!-- Google Map -->
 		<div class="row">
 			<div class="col-md-12">
-				
+
 				<div id="map"></div>
 
 				<style>
@@ -182,7 +167,7 @@
 		<h3>Nearby</h3>
 		<div class="row">
 			<% for room in @room.nearbys(10) %>
-				
+
 				<div class="col-md-4">
 					<div class="panel panel-default">
 						<div class="panel-heading preview">

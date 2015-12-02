@@ -25,7 +25,7 @@
 }
 
 .container {
-	width: 80%
+	width: 85%
 }
 
 .navbar-default {
@@ -71,7 +71,8 @@
 	color: #565a5c;
 	background-color: #edefed;
 	font-size: 18px;
-	font-weight: 400
+	font-weight: 400;
+  padding: 10px;
 }
 
 .row-space-1 {
@@ -164,7 +165,7 @@ select {
 	border-radius: 2px;
 	padding: 10px;
 	appearance: none;
-	-moz-appearance: none; 
+	-moz-appearance: none;
 	-webkit-appearance: none;
 }
 
@@ -263,4 +264,8 @@ input[type="checkbox"]:checked:before {
 
 .conversation:hover, .conversation:focus {
 	background-color: #f4f4f5;
+}
+
+.carousel-inner > .item>img, .carousel-inner > .item > a > img {
+  width: 100%
 }
