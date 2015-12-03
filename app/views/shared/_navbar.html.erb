@@ -11,8 +11,15 @@
       <a class="navbar-brand" href="#">MiCasaSuCloset</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
+
+      <%= form_tag search_path, class: "navbar-form navbar-left", method: :get do %>
+        <div class="form-group">
+          <%= text_field_tag :search, params[:search], placeholder: "Search 4 a location", class: "form-control" %>
+        </div>
+      <% end %>
+
       <ul class="nav navbar-nav navbar-right">
-        
+
         <% if(!user_signed_in?) %>
           <li><%= link_to "Log In", new_user_session_path %></li>
           <li><%= link_to "Sign Up", new_user_registration_path %></li>
@@ -35,7 +42,7 @@
             </ul>
           </li>
         <% end %>
-        
+
         <li>
           <%= link_to conversations_path do %>
             <i class="fa fa-envelope-o"></i> Messages
@@ -46,9 +53,9 @@
             <i class="fa fa-home fa-lg"></i> Become a Host
           <% end %>
         </li>
-        
+
       </ul>
-      
+
     </div><!--/.nav-collapse -->
   </div>
 </nav>
