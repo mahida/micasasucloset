@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  
+
   root 'pages#home'
 
-  devise_for  :users, 
+  devise_for  :users,
               :path => '',
               :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'},
               :controllers => {:omniauth_callbacks => 'omniauth_callbacks',
@@ -32,6 +32,8 @@ Rails.application.routes.draw do
 
   post '/notify' => 'reservations#notify'
   post 'your_storage' => 'reservations#your_storage'
+
+  get '/search' => 'pages#search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
